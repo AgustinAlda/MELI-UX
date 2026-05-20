@@ -1546,9 +1546,124 @@
     }
 
     /* ════════════════════════════════════
-       SECCIÓN 7 — FUERA DEL SCOPE
+       SECCIÓN 7 — DISEÑO
     ════════════════════════════════════ */
     #s7 {
+      gap: 48px;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 960px;
+    }
+
+    .design-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.3s;
+    }
+
+    .design-card:hover {
+      border-color: #555;
+      transform: translateY(-5px);
+    }
+
+    .design-card-img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .design-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+      transition: transform 0.5s ease, filter 0.3s;
+    }
+
+    .design-card:hover .design-card-img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .design-card-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(26,26,26,0.85) 100%);
+    }
+
+    .design-card-body {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .design-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .design-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .design-card-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: none;
+      flex: 1;
+    }
+
+    .design-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      background: var(--yellow);
+      color: #000;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      width: fit-content;
+      transition: opacity 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .design-card-cta:hover {
+      opacity: 0.88;
+      transform: translateX(2px);
+    }
+
+    @media (max-width: 768px) {
+      .design-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ════════════════════════════════════
+       SECCIÓN 8 — FUERA DEL SCOPE
+    ════════════════════════════════════ */
+    #s8 {
       gap: 48px;
     }
 
@@ -1816,7 +1931,11 @@
         <span class="nav-dot-label">Las pantallas</span>
       </div>
       <div class="nav-dot-wrapper">
-        <button class="nav-dot" data-target="s7" aria-label="Fuera del scope"></button>
+        <button class="nav-dot" data-target="s7" aria-label="Diseño"></button>
+        <span class="nav-dot-label">Diseño</span>
+      </div>
+      <div class="nav-dot-wrapper">
+        <button class="nav-dot" data-target="s8" aria-label="Fuera del scope"></button>
         <span class="nav-dot-label">Fuera del scope</span>
       </div>
     </div>
@@ -2275,8 +2394,68 @@
       </div>
     </section>
 
-    <!-- ── SECCIÓN 7 · FUERA DEL SCOPE ── -->
+    <!-- ── SECCIÓN 7 · DISEÑO ── -->
     <section class="section" id="s7">
+      <div class="fade-in">
+        <span class="section-tag">06 — Diseño</span>
+        <h2>Los entregables</h2>
+        <p style="margin-top:10px; color:#bbb; max-width:560px;">Tres niveles de fidelidad que documentan el proceso de diseño de principio a fin.</p>
+      </div>
+      <div class="design-grid fade-in fade-in-delay-2">
+
+        <div class="design-card">
+          <div class="design-card-img-wrap">
+            <img class="design-card-img" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80" alt="Wireframes en baja" loading="lazy" />
+            <div class="design-card-img-overlay"></div>
+          </div>
+          <div class="design-card-body">
+            <span class="design-card-label">01</span>
+            <h3 class="design-card-title">Wireframes en baja</h3>
+            <p class="design-card-desc">Estructuras en escala de grises que definen jerarquía, flujo y disposición de cada pantalla sin distracciones visuales.</p>
+            <a href="#" class="design-card-cta" data-cta="wireframes-baja">
+              Ver wireframes
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="design-card">
+          <div class="design-card-img-wrap">
+            <img class="design-card-img" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Wireframes en alta" loading="lazy" />
+            <div class="design-card-img-overlay"></div>
+          </div>
+          <div class="design-card-body">
+            <span class="design-card-label">02</span>
+            <h3 class="design-card-title">Wireframes en alta</h3>
+            <p class="design-card-desc">Pantallas con color, tipografía y componentes reales del design system de Meli Play, listas para revisión con stakeholders.</p>
+            <a href="#" class="design-card-cta" data-cta="wireframes-alta">
+              Ver diseño
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="design-card">
+          <div class="design-card-img-wrap">
+            <img class="design-card-img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80" alt="Prototipo funcional" loading="lazy" />
+            <div class="design-card-img-overlay"></div>
+          </div>
+          <div class="design-card-body">
+            <span class="design-card-label">03</span>
+            <h3 class="design-card-title">Prototipo funcional</h3>
+            <p class="design-card-desc">Flujo interactivo navegable que replica la experiencia completa: enviar, recibir y resolver recomendaciones dentro de la app.</p>
+            <a href="#" class="design-card-cta" data-cta="prototipo">
+              Ver prototipo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SECCIÓN 8 · FUERA DEL SCOPE ── -->
+    <section class="section" id="s8">
       <div class="fade-in">
         <span class="section-tag">06 — Fuera del scope</span>
         <h2>Contemplado, no diseñado</h2>
@@ -2335,7 +2514,8 @@
       s4: { num: '04', name: 'Decisiones' },
       s5: { num: '05', name: 'Cómo funciona' },
       s6: { num: '06', name: 'Las pantallas' },
-      s7: { num: '07', name: 'Fuera del scope' },
+      s7: { num: '07', name: 'Diseño' },
+      s8: { num: '08', name: 'Fuera del scope' },
     };
 
     // ── Fade-in on viewport entry ──
